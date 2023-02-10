@@ -29,9 +29,9 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <HBox layoutX="251.0" layoutY="70.0" prefHeight="305.0" prefWidth="299.0">
+                        <HBox layoutX="218.0" layoutY="66.0" prefHeight="270.0" prefWidth="332.0">
                            <children>
-                              <VBox prefHeight="293.0" prefWidth="79.0" spacing="25.0">
+                              <VBox prefHeight="270.0" prefWidth="120.0" spacing="25.0">
                                  <children>
                                     <Label text="Name:">
                                        <font>
@@ -60,7 +60,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox prefHeight="334.0" prefWidth="162.0" spacing="25.0">
+                              <VBox prefHeight="270.0" prefWidth="111.0" spacing="25.0">
                                  <children>
                                     <Label fx:id="lblname" text="Label">
                                        <font>
@@ -82,16 +82,21 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="lblsince" text="Label">
+                                    <Label fx:id="lblknownfor" text="Label">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </VBox>
+                              <VBox prefHeight="270.0" prefWidth="151.0">
+                                 <children>
+                                    <TextField fx:id="filename" alignment="CENTER" prefHeight="25.0" prefWidth="122.0" promptText="file name" />
+                                 </children>
+                              </VBox>
                            </children>
                         </HBox>
-                        <Button fx:id="btndelfriend" disable="true" layoutX="251.0" layoutY="411.0" mnemonicParsing="false" onAction="#delfriend" prefHeight="51.0" prefWidth="223.0" text="Remove Friend">
+                        <Button fx:id="btndelfriend" disable="true" layoutX="254.0" layoutY="412.0" mnemonicParsing="false" onAction="#delfriend" prefHeight="51.0" prefWidth="223.0" text="Remove Friend">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -101,6 +106,21 @@
                               <Font size="18.0" />
                            </font>
                         </Button>
+                        <Button fx:id="savefriends" layoutX="201.0" layoutY="336.0" mnemonicParsing="false" onAction="#saveFriends" prefHeight="51.0" prefWidth="164.0" text="Save Friends">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="loadfriends" disable="true" layoutX="383.0" layoutY="336.0" mnemonicParsing="false" onAction="#loadFriends" text="Load Friends">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="370.0" layoutY="-2.0" prefHeight="68.0" prefWidth="193.0" text="Enter file name to save/load:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </content>
@@ -151,7 +171,7 @@
                                     <TextField fx:id="txtfldage" promptText="age" />
                                     <TextField fx:id="txtfldschool" promptText="school" />
                                     <TextField fx:id="txtfldhobbies" promptText="hobbies" />
-                                    <TextField fx:id="txtfldsince" promptText="since" />
+                                    <TextField fx:id="txtfldknownfor" promptText="since" />
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="215.0" prefWidth="349.0">
