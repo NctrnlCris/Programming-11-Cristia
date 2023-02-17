@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="427.0" prefWidth="658.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cp11project.Controller">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <TabPane fx:id="TabPane" prefHeight="451.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab fx:id="Beginningtab" text="Start">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" onMouseClicked="#StartSwitch" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="137.0" layoutY="138.0" text="Click anywhere to start">
+                           <font>
+                              <Font name="Berlin Sans FB" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="Takingtab" text="Taking Orders">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="358.0" prefWidth="648.0">
+                     <children>
+                        <HBox layoutY="7.0" prefHeight="352.0" prefWidth="618.0" spacing="10.0">
+                           <children>
+                              <VBox prefHeight="421.0" prefWidth="95.0" spacing="10.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#btncheeseburger" prefHeight="50.0" prefWidth="127.0" text="Cheese Burger" textFill="RED" />
+                                    <Button mnemonicParsing="false" onAction="#btnchickenwrap" prefHeight="50.0" prefWidth="123.0" text="Chicken Wrap" textFill="RED" />
+                                    <Button mnemonicParsing="false" onAction="#btnchickennuggets" prefHeight="50.0" prefWidth="130.0" text="Chicken Nuggets" textAlignment="CENTER" textFill="RED" wrapText="true" />
+                                    <Button mnemonicParsing="false" onAction="#btnveganburger" prefHeight="50.0" prefWidth="134.0" text="Vegan Burger" textFill="RED" />
+                                    <Button mnemonicParsing="false" onAction="#btngreeksalad" prefHeight="50.0" prefWidth="120.0" text="Greek Salad" textFill="RED" />
+                                    <Button mnemonicParsing="false" onAction="#btnbacondoubleburger" prefHeight="50.0" prefWidth="131.0" text="Bacon Double Burger" textAlignment="CENTER" textFill="RED" wrapText="true" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="360.0" prefWidth="85.0" spacing="10.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#btnfries" prefHeight="50.0" prefWidth="112.0" text="Fries" textFill="#2b00ff" />
+                                    <Button mnemonicParsing="false" onAction="#btnonionrings" prefHeight="50.0" prefWidth="107.0" text="Onion Rings" textFill="#2b00ff" />
+                                    <Button mnemonicParsing="false" onAction="#btncaesarsalad" prefHeight="50.0" prefWidth="107.0" text="Caesar Salad" textFill="#2b00ff" />
+                                    <Button mnemonicParsing="false" onAction="#btnsoup" prefHeight="50.0" prefWidth="125.0" text="Soup" textFill="#2b00ff" />
+                                    <Button mnemonicParsing="false" onAction="#btncake" prefHeight="50.0" prefWidth="167.0" text="Cake" textFill="#00a84e" />
+                                    <Button mnemonicParsing="false" onAction="#btnsundae" prefHeight="50.0" prefWidth="107.0" text="Sundae" textFill="#00a84e" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="85.0" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="cocacolaIDs" mnemonicParsing="false" onAction="#btncocacola" prefHeight="35.0" prefWidth="97.0" text="Coca-Cola" textFill="#9a049f" />
+                                    <Button mnemonicParsing="false" onAction="#btnsprite" prefHeight="35.0" prefWidth="114.0" text="Sprite" textFill="#9a049f" />
+                                    <Button mnemonicParsing="false" onAction="#btnnestea" prefHeight="35.0" prefWidth="100.0" text="Nestea" textFill="#9a049f" />
+                                    <Button mnemonicParsing="false" onAction="#btnfanta" prefHeight="35.0" prefWidth="101.0" text="Fanta" textFill="#9a049f" />
+                                    <Button mnemonicParsing="false" onAction="#btnwater" prefHeight="35.0" prefWidth="107.0" text="Water" textFill="#9a049f" />
+                                    <Button mnemonicParsing="false" onAction="#btncoffee" prefHeight="35.0" prefWidth="104.0" text="Coffee" textFill="#9a049f" />
+                                    <Button mnemonicParsing="false" onAction="#btnmilkshake" prefHeight="35.0" prefWidth="104.0" text="Milkshake" textFill="#9a049f" />
+                                    <Button mnemonicParsing="false" onAction="#btnlemonnade" prefHeight="35.0" prefWidth="95.0" text="Lemonnade" textFill="#9a049f" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_RIGHT" prefHeight="305.0" prefWidth="128.0" spacing="30.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#OrderIn" prefHeight="55.0" prefWidth="100.0" text="Order in" />
+                                    <Button mnemonicParsing="false" onAction="#Removeitem" prefHeight="55.0" prefWidth="100.0" text="Remove" />
+                                    <Button mnemonicParsing="false" onAction="#RemoveAll" prefHeight="55.0" prefWidth="100.0" text="Remove all" />
+                                    <VBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="128.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="90.0" text="McWendy's inc." />
+                                          <Label prefHeight="17.0" prefWidth="90.0" text="Est. 2023" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="BOTTOM_CENTER" prefHeight="352.0" prefWidth="185.0">
+                                 <children>
+                                    <Label text="Order">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ListView fx:id="listtaking" prefHeight="375.0" prefWidth="185.0" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="148.0">
+                                       <children>
+                                          <Label prefHeight="27.0" prefWidth="67.0" text="Total: $">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="txtTotal" ellipsisString="" prefHeight="27.0" prefWidth="52.0" text="Number">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefHeight="27.0" prefWidth="88.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="Listtab" text="Order List">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="343.0" prefWidth="400.0">
+                     <children>
+                        <HBox layoutX="1.0" prefHeight="359.0" prefWidth="618.0" spacing="20.0">
+                           <children>
+                              <VBox alignment="BOTTOM_CENTER" prefHeight="359.0" prefWidth="110.0">
+                                 <children>
+                                    <Label prefHeight="37.0" prefWidth="110.0" text="Current Orders" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ListView fx:id="listcurrent" onMouseClicked="#currentorderslist" prefHeight="317.0" prefWidth="89.0" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="BOTTOM_CENTER" prefHeight="359.0" prefWidth="181.0">
+                                 <children>
+                                    <Label prefHeight="39.0" prefWidth="55.0" text=" Order" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ListView fx:id="listorder" prefHeight="291.0" prefWidth="181.0" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="148.0">
+                                       <children>
+                                          <Label prefHeight="27.0" prefWidth="67.0" text="Total: $">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="txtTotalOL" ellipsisString="" prefHeight="27.0" prefWidth="52.0" text="Number">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefHeight="27.0" prefWidth="88.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="359.0" prefWidth="156.0" spacing="50.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="72.0" prefWidth="156.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Search for Total" />
+                                          <TextField fx:id="txtsearchtotal" alignment="CENTER" promptText="Order #" />
+                                          <Button mnemonicParsing="false" onAction="#btnsearchtotal" text="Search" />
+                                       </children>
+                                    </VBox>
+                                    <Button mnemonicParsing="false" onAction="#completeorder" prefHeight="60.0" prefWidth="171.0" text="Complete Order">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#deleteorder" prefHeight="60.0" prefWidth="165.0" text="Delete Order">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>
