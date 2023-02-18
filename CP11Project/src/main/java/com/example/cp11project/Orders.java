@@ -4,25 +4,27 @@ import javafx.scene.control.ListView;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
-import static com.example.cp11project.Controller.listorder;
 
 public class Orders {
     private static FileReader fr;
     private static BufferedReader br;
-    static int ordernumber = 1;
-    int idnum;
+    double totalcost;
+    String ordername;
 
     public double getTotalcost() {
         return totalcost;
     }
 
-    double totalcost = 0;
 
-    public Orders(double TotalCost) {
-        idnum = ordernumber;
-        ordernumber++;
+    public Orders(double TotalCost,String Ordername ) {
         this.totalcost = TotalCost;
+        this.ordername = Ordername;
+    }
+
+    public static ArrayList<Orders> getOrder() {
+        return Order;
     }
 
     public static ArrayList<Orders> Order = new ArrayList<>();
@@ -41,9 +43,10 @@ public class Orders {
             } else {
                 Createorder(OrderString);
                 OrderString = "";
+
             }
         }
-        return Order;
+        return createord;
     }
 
     private static void Createorder(String order) {
@@ -57,14 +60,17 @@ public class Orders {
                 createord.add(createitem);
             }
             else {
-                double totalorder = Double.parseDouble(Splice[i]);
+                 double temp = Double.parseDouble(Splice[i]);
+                Orders createorder = new Orders(temp, "");
+                Order.add(createorder);
             }
         }
     }
 
     public String toString() {
-        return "" + idnum;
+        return ordername;
     }
+
 }
 
 

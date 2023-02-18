@@ -21,13 +21,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch();
     }
-    /* To do
-    Only writing total to file
-    Display orders. Save total to file for safety.
 
-
-
-
-     */
 
 }
