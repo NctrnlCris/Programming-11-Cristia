@@ -1,6 +1,6 @@
 package com.example.cp11project;
 
-import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,14 +27,14 @@ public class Controller {
     @FXML
     public ListView <Items>listtaking = new ListView<>();
     public ListView <Orders> listcurrent;
-    public static ListView <Items> listorder;
+    public ListView <Items> listorder;
     public Label txtTotal;
     public double total = 0.00;
-    public Label txtTotalOL;
+    public  Label txtTotalOL;
     public TextField txtsearchorder;
-    static double totalorder;
-
-
+    public Button btnsearchordID;
+    public TextField ordername;
+    public ObservableList<Items> temp;
 
 
     public void StartSwitch(MouseEvent mouseEvent) {
@@ -43,20 +43,20 @@ public class Controller {
         Beginningtab.setDisable(true);
     }
     public void OrderIn(ActionEvent actionEvent) throws IOException {
-        Orders orderin = new Orders(total);
-        totalorder = total;
-        System.out.println(orderin.totalcost);
-        System.out.println(orderin);
-        System.out.println(listtaking.getItems());
-        listcurrent.getItems().add(orderin);
-        listorder = listtaking;
-        String FileName = String.valueOf(Orders.ordernumber);
-        new File(FileName + ".txt");
-        ObservableList<Items> myList = listtaking.getItems();
-        for (Items i : myList) {
-            i.writeToFile(FileName);
-        }
-        listtaking.getItems().clear();
+        if (!listtaking.getItems().isEmpty() && !ordername.getText().equals("")){
+            Orders orderin = new Orders(total, ordername.getText());
+            temp = listtaking.getItems();
+            System.out.print(temp);
+            System.out.println(orderin.totalcost);
+            System.out.println(orderin);
+            System.out.println(listtaking.getItems());
+            listcurrent.getItems().add(orderin);
+            String FileName = orderin.ordername;
+            new File(FileName + ".txt");
+            Items.writeToFile(FileName, listtaking, total);
+            listtaking.getItems().clear();
+            ordername.clear();
+    }
 
 
     }
@@ -79,8 +79,7 @@ public class Controller {
         Items remove = new Items("",0);
         remove.name = listtaking.getSelectionModel().getSelectedItem().getName();
         remove.cost = listtaking.getSelectionModel().getSelectedItem().getCost();
-        removecalculate(remove.cost);
-        System.out.println(total + " " + remove.getCost());
+        txtTotal.setText(String.valueOf(removecalculate(remove.cost)));
         listtaking.getItems().remove(listtaking.getSelectionModel().getSelectedItem());
         if (listtaking.getItems().size() == 0){
             total = 0;
@@ -96,25 +95,51 @@ public class Controller {
     }
 
     public void completeorder(ActionEvent actionEvent) {
+        if (!listcurrent.getSelectionModel().isEmpty()) {
+            listcurrent.getItems().remove(listcurrent.getSelectionModel().getSelectedItem());
+            listorder.getItems().clear();
+            txtTotalOL.setText("0");
+        }
+
+
+
     }
 
-    public void deleteorder(ActionEvent actionEvent) {
-    }
+
 
     public void btnsearchorder(ActionEvent actionEvent) throws IOException{
-        // Requires: Button Press, filename
-        // Modifies: friends, list
-        // Effects: Loads friends from file to listview
-        int Ordernum = Integer.parseInt(txtsearchorder.getText());
-        String Filename = String.valueOf(Ordernum);
+        String Filename = txtsearchorder.getText();
         ArrayList<Items> items = Orders.ReadFile(Filename);
-
-
+        System.out.println(items);
+        ArrayList <Orders> orders = Orders.getOrder();
+        System.out.println(orders);
         if (!items.isEmpty()) {
             for (Items i : items) {
+                System.out.print("test");
                 listorder.getItems().add(i);
             }
         }
+        txtTotalOL.setText(String.valueOf(orders.get(0).totalcost));
+        btnsearchordID.setDisable(true);
+        items.clear();
+        int count = 0;
+        for( int i=0; i<listcurrent.getItems().size(); i++) {
+            if (!listcurrent.getItems().get(i).toString().equals(Filename)) {
+            }
+            else {
+                count++;
+            }
+        }
+        if (count == 0){
+            listcurrent.getItems().add(new Orders(0, Filename));
+        }
+    }
+    public void ClearOrder(ActionEvent actionEvent) {
+        btnsearchordID.setDisable(false);
+        listorder.getItems().clear();
+        txtsearchorder.clear();
+        txtTotalOL.setText("0");
+
     }
 
 
@@ -259,9 +284,6 @@ public class Controller {
     }
 
 
-    public void currentorderslist(MouseEvent mouseEvent) {
-    }
 
-    public void btnsearchtotal(ActionEvent actionEvent) {
-    }
+
 }

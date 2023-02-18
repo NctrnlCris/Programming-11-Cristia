@@ -60,7 +60,7 @@
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="85.0" spacing="10.0">
                                  <children>
-                                    <Button fx:id="cocacolaIDs" mnemonicParsing="false" onAction="#btncocacola" prefHeight="35.0" prefWidth="97.0" text="Coca-Cola" textFill="#9a049f" />
+                                    <Button mnemonicParsing="false" onAction="#btncocacola" prefHeight="35.0" prefWidth="97.0" text="Coca-Cola" textFill="#9a049f" />
                                     <Button mnemonicParsing="false" onAction="#btnsprite" prefHeight="35.0" prefWidth="114.0" text="Sprite" textFill="#9a049f" />
                                     <Button mnemonicParsing="false" onAction="#btnnestea" prefHeight="35.0" prefWidth="100.0" text="Nestea" textFill="#9a049f" />
                                     <Button mnemonicParsing="false" onAction="#btnfanta" prefHeight="35.0" prefWidth="101.0" text="Fanta" textFill="#9a049f" />
@@ -75,6 +75,12 @@
                                     <Button mnemonicParsing="false" onAction="#OrderIn" prefHeight="55.0" prefWidth="100.0" text="Order in" />
                                     <Button mnemonicParsing="false" onAction="#Removeitem" prefHeight="55.0" prefWidth="100.0" text="Remove" />
                                     <Button mnemonicParsing="false" onAction="#RemoveAll" prefHeight="55.0" prefWidth="100.0" text="Remove all" />
+                                    <VBox alignment="TOP_CENTER" prefHeight="65.0" prefWidth="128.0" spacing="7.0">
+                                       <children>
+                                          <Label text="Order Name" />
+                                          <TextField fx:id="ordername" alignment="CENTER" promptText="Order Name" />
+                                       </children>
+                                    </VBox>
                                     <VBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="128.0">
                                        <children>
                                           <Label prefHeight="17.0" prefWidth="90.0" text="McWendy's inc." />
@@ -98,7 +104,7 @@
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="txtTotal" ellipsisString="" prefHeight="27.0" prefWidth="52.0" text="Number">
+                                          <Label fx:id="txtTotal" ellipsisString="" prefHeight="27.0" prefWidth="52.0" text="0">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -127,7 +133,7 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <ListView fx:id="listcurrent" onMouseClicked="#currentorderslist" prefHeight="317.0" prefWidth="89.0" />
+                                    <ListView fx:id="listcurrent" prefHeight="317.0" prefWidth="89.0" />
                                  </children>
                               </VBox>
                               <VBox alignment="BOTTOM_CENTER" prefHeight="359.0" prefWidth="181.0">
@@ -145,7 +151,7 @@
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="txtTotalOL" ellipsisString="" prefHeight="27.0" prefWidth="52.0" text="Number">
+                                          <Label fx:id="txtTotalOL" ellipsisString="" prefHeight="27.0" prefWidth="52.0" text="0">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -155,21 +161,24 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <VBox alignment="CENTER" prefHeight="359.0" prefWidth="156.0" spacing="50.0">
+                              <VBox alignment="CENTER" prefHeight="359.0" prefWidth="213.0" spacing="50.0">
                                  <children>
-                                    <VBox alignment="CENTER" prefHeight="72.0" prefWidth="156.0" spacing="10.0">
+                                    <VBox alignment="CENTER" prefHeight="131.0" prefWidth="156.0" spacing="10.0">
                                        <children>
-                                          <Label text="Search for Total" />
-                                          <TextField fx:id="txtsearchtotal" alignment="CENTER" promptText="Order #" />
-                                          <Button mnemonicParsing="false" onAction="#btnsearchtotal" text="Search" />
+                                          <Label text="Search for/display Order">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Label>
+                                          <TextField fx:id="txtsearchorder" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="144.0" promptText="Order name" />
+                                          <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#ClearOrder" prefHeight="35.0" prefWidth="65.0" text="Clear" />
+                                                <Button fx:id="btnsearchordID" lineSpacing="20.0" mnemonicParsing="false" onAction="#btnsearchorder" prefHeight="35.0" prefWidth="65.0" text="Search" />
+                                             </children>
+                                          </HBox>
                                        </children>
                                     </VBox>
                                     <Button mnemonicParsing="false" onAction="#completeorder" prefHeight="60.0" prefWidth="171.0" text="Complete Order">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#deleteorder" prefHeight="60.0" prefWidth="165.0" text="Delete Order">
                                        <font>
                                           <Font size="18.0" />
                                        </font>

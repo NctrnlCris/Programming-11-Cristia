@@ -8,7 +8,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import static com.example.cp11project.Controller.totalorder;
 
 
 public class Items {
@@ -23,19 +22,17 @@ public class Items {
         return this.name;
     }
 
-    Controller controller;
-    public void writeToFile(String file) throws IOException {
+    public static void writeToFile(String file, ListView lv, double totalorder) throws IOException {
         FileWriter fw = new FileWriter(file, true);
         BufferedWriter bw = new BufferedWriter(fw);
-        ListView<Items> temp = controller.getListtaking();
-        System.out.print(temp);
-        for (int i = 0; i < temp.getItems().size(); i++) {
-            bw.write(temp.getItems().get(i) + ",\r");
+        for (int i=0; i< lv.getItems().size();i++) {
+        bw.write(lv.getItems().get(i) + ",\r");
         }
-        bw.write(totalorder+ "\r");
+        bw.write(totalorder + "\r");
         bw.write(";\r");
         bw.close();
     }
+
 
 
     public String getName() {
